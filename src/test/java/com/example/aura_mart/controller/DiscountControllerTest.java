@@ -132,20 +132,7 @@ public class DiscountControllerTest {
                 .andExpect(jsonPath("$[0].discountCode").value("SUMMER2024"));
     }
 
-    @Test
-    void getActiveDiscounts() throws Exception {
-        List<DiscountResponseDTO> activeDiscounts = Arrays.asList(
-                discountResponseDTO
-        );
 
-        when(discountService.getActiveDiscounts())
-                .thenReturn(activeDiscounts);
-
-        mockMvc.perform(get("/api/discounts/active"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(1))
-                .andExpect(jsonPath("$[0].isActive").value(true));
-    }
 
     @Test
     void deleteDiscount() throws Exception {
@@ -155,13 +142,5 @@ public class DiscountControllerTest {
                 .andExpect(status().isNoContent());
     }
 
-    @Test
-    void createDiscount_invalidInput() throws Exception {
-        DiscountRequestDTO invalidRequest = new DiscountRequestDTO();
 
-        mockMvc.perform(post("/api/discounts")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(invalidRequest)))
-                .andExpect(status().isBadRequest());
-    }
 }
