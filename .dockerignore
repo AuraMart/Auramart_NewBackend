@@ -1,0 +1,31 @@
+# Ignore Maven or Gradle build directories
+/build/
+
+# Ignore temporary files and logs
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore version control files
+.git
+.gitignore
+.idea
+*.iml
+
+# Ignore Docker-related files
+.dockerignore
+docker-compose.yaml
+Dockerfile*
+
+# Ignore IDE and editor config files
+*.sublime*
+*.code-workspace
+
+# Ignore environment files
+.env
+.env.*
