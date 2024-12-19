@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    image: risnidocker/auramart-backend:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auramart-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://avnadmin:AVNS_f7kvSipUW56b7NWp8-a@mysql-e048d65-risni-0f9f.b.aivencloud.com:26851/aura_db?ssl-mode=REQUIRED
+      SPRING_DATASOURCE_USERNAME: avnadmin
+      SPRING_DATASOURCE_PASSWORD: AVNS_f7kvSipUW56b7NWp8-a
